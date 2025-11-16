@@ -1,39 +1,27 @@
 # Testcontainers for Java
 
-<p align=center><strong>Not using Java? Here are other supported languages!</strong></p>
-<div class="card-grid">
-    <a class="card-grid-item"><img src="language-logos/java.svg"/>Java</a>
-    <a href="https://golang.testcontainers.org/" class="card-grid-item"><img src="language-logos/go.svg"/>Go</a>
-    <a href="https://dotnet.testcontainers.org/" class="card-grid-item"><img src="language-logos/dotnet.svg"/>.NET</a>
-    <a href="https://node.testcontainers.org/" class="card-grid-item"><img src="language-logos/nodejs.svg"/>Node.js</a>
-    <a href="https://testcontainers-python.readthedocs.io/en/latest/" class="card-grid-item"><img src="language-logos/python.svg"/>Python</a>
-    <a href="https://docs.rs/testcontainers/latest/testcontainers/" class="card-grid-item"><img src="language-logos/rust.svg"/>Rust</a>
-    <a href="https://github.com/testcontainers/testcontainers-hs/" class="card-grid-item" ><img src="language-logos/haskell.svg"/>Haskell</a>
-    <a href="https://github.com/testcontainers/testcontainers-ruby/" class="card-grid-item" ><img src="language-logos/ruby.svg"/>Ruby</a>
-</div>
-
 ## About Testcontainers for Java
 
-*Testcontainers for Java* is a Java library that supports JUnit tests, providing lightweight, throwaway instances of common databases, Selenium web browsers, or anything else that can run in a Docker container.
-
-Testcontainers make the following kinds of tests easier:
-
-* **Data access layer integration tests**: use a containerized instance of a MySQL, PostgreSQL or Oracle database to test your data access layer code for complete compatibility, but without requiring complex setup on developers' machines and safe in the knowledge that your tests will always start with a known DB state. Any other database type that can be containerized can also be used.
-* **Application integration tests**: for running your application in a short-lived test mode with dependencies, such as databases, message queues or web servers.
-* **UI/Acceptance tests**: use [containerized web browsers](modules/webdriver_containers.md), compatible with Selenium, for conducting automated UI tests. Each test can get a fresh instance of the browser, with no browser state, plugin variations or automated browser upgrades to worry about. And you get a video recording of each test session, or just each session where tests failed.
-* **Much more!** Check out the various contributed modules or create your own custom container classes using [`GenericContainer`](features/creating_container.md) as a base.
+* *Testcontainers for Java*
+  * == Java library
+  * uses
+    * **Data access layer integration tests**
+    * **Application integration tests**
+    * **UI/Acceptance tests**
+      * == use [containerized web browsers](modules/webdriver_containers.md)
+    * create your OWN custom container classes -- via -- [`GenericContainer`](features/creating_container.md)
 
 ## Prerequisites
 
-* Docker - please see [General Docker requirements](supported_docker_environment/index.md)
-* A supported JVM testing framework:
-    * [JUnit 4](test_framework_integration/junit_4.md) - See the [JUnit 4 Quickstart Guide](quickstart/junit_4_quickstart.md)
-    * [Jupiter/JUnit 5](test_framework_integration/junit_5.md)
-    * [Spock](test_framework_integration/spock.md)
-    * *Or* manually add code to control the container/test lifecycle (See [hints for this approach](test_framework_integration/junit_4.md#manually-controlling-container-lifecycle))
+* [General Docker requirements](supported_docker_environment/index.md)
+* supported JVM testing framework:
+  * [JUnit 4](test_framework_integration/junit_4.md)
+  * [Jupiter/JUnit 5](test_framework_integration/junit_5.md)
+  * [Spock](test_framework_integration/spock.md)
 
 ## Maven dependencies
 
+* TODO:
 Testcontainers is distributed as separate JARs with a common version number:
 
 * A core JAR file for core functionality, generic containers and docker-compose support
@@ -104,77 +92,6 @@ Using Gradle 5.0 or higher, you can add the following to the `dependencies` sect
     But there are also "private", implementation detail dependencies (e.g., docker-java-core, Guava, OkHttp, etc.) that are not exposed to public API but prone to conflicts with test code/application under test code. 
     As such, **these libraries are 'shaded' into the core Testcontainers JAR** and relocated under `org.testcontainers.shaded` to prevent class conflicts.
 
-## Sponsors
-
-A huge thank you to our sponsors:
-
-### Bronze sponsors
-
-<div style="text-align:center; max-width: 128px; display: inline-block; margin: 5px;">
-    <a href="https://cirrus-ci.org/">
-        <img src="sponsor_logos/cirrus_labs.jpg" style="width: 100%"/>
-        <p>Cirrus CI</p>
-        <!-- via fkorotkov's sponsorship -->
-    </a>
-</div>
-
-<div style="text-align:center; max-width: 128px; display: inline-block; margin: 5px;">
-    <a href="https://vivy.com">
-        <img src="sponsor_logos/vivy.png" style="width: 100%"/>
-        <p>Vivy</p>
-    </a>
-</div>
-
-<div style="text-align:center; max-width: 128px; display: inline-block; margin: 5px;">
-    <a href="https://www.jooq.org/">
-        <img src="sponsor_logos/jooq.jpg" style="width: 100%"/>
-        <p>jOOQ</p>
-    </a>
-</div>
-
-<div style="text-align:center; max-width: 128px; display: inline-block; margin: 5px;">
-    <a href="https://www.backbase.com/">
-        <img src="sponsor_logos/backbase.png" style="width: 100%"/>
-        <p>Backbase</p>
-    </a>
-</div>
-
-<div style="text-align:center; max-width: 128px; display: inline-block; margin: 5px;">
-    <a href="https://www.elastic.co/">
-        <img src="sponsor_logos/elastic.png" style="width: 100%"/>
-        <p>Elastic</p>
-    </a>
-</div>
-
-### Donors
-
-<div style="text-align:center; max-width: 128px; display: inline-block; margin: 5px;">
-    <a href="https://www.redhat.com">
-        <img src="sponsor_logos/red_hat.png" style="width: 100%"/>
-        <p>Red Hat</p>
-    </a>
-</div>
-
-<div style="text-align:center; max-width: 128px; display: inline-block; margin: 5px;">
-    <a href="https://www.spotify.com">
-        <img src="sponsor_logos/spotify.png" style="width: 100%"/>
-        <p>Spotify</p>
-    </a>
-</div>
-
-### Backers
-
-* [Philip Riecks (@rieckpil)](https://github.com/rieckpil)
-* [Karl Heinz Marbaise (@khmarbaise)](https://github.com/khmarbaise)
-* [Sascha Frinken (@sascha-frinken)](https://github.com/sascha-frinken)
-* [Christoph Dreis (@dreis2211)](https://github.com/dreis2211)
-* [Nikita Zhevnitskiy (@zhenik)](https://github.com/zhenik)
-* [Bas Stoker (@bastoker)](https://github.com/bastoker)
-* [Oleg Nenashev (@oleg-nenashev)](https://github.com/oleg-nenashev)
-* [Rik Glover (@rikglover)](https://github.com/rikglover)
-* [Amitosh Swain Mahapatra (@recrsn)](https://github.com/recrsn)
-* [Paris Apostolopoulos](https://opencollective.com/paris-apostolopoulos)
-
 ## Who is using Testcontainers?
 
 * [ZeroTurnaround](https://zeroturnaround.com) - Testing of the Java Agents, micro-services, Selenium browser automation
@@ -224,18 +141,8 @@ A huge thank you to our sponsors:
 * [Dash0](https://www.dash0.com) - Integration testing for OpenTelemetry Observability product.
 
 
-## License
-
-See [LICENSE](https://raw.githubusercontent.com/testcontainers/testcontainers-java/main/LICENSE).
-
 ## Attributions
 
 This project includes a modified class (ScriptUtils) taken from the Spring JDBC project, adapted under the terms of the Apache license. Copyright for that class remains with the original authors.
 
 This project was initially inspired by a [gist](https://gist.github.com/mosheeshel/c427b43c36b256731a0b) by [Moshe Eshel](https://github.com/mosheeshel).
-
-## Copyright
-
-Copyright (c) 2015-2021 Richard North and other authors.
-
-See [AUTHORS](https://raw.githubusercontent.com/testcontainers/testcontainers-java/main/AUTHORS) for contributors.
