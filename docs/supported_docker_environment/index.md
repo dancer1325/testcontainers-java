@@ -94,6 +94,10 @@ export TESTCONTAINERS_HOST_OVERRIDE=$(rdctl shell ip a show vznat | awk '/inet /
     * installed FIRST found [Docker Machine](https://docs.docker.com/retired/#docker-machine)
       * requirements
         * Docker Machine needs to be | PATH
+      * if you want to disable it -> | ".testcontainers.properties"
+        ```properties
+        testcontainers.docker.client.strategy=org.testcontainers.dockerclient.UnixSocketClientProviderStrategy
+        ```  
 
 * [run your tests | container](continuous_integration/dind_patterns.md)
 

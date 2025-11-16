@@ -1,8 +1,7 @@
 # Reusable Containers (Experimental)
 
-!!! warning 
-    Reusable Containers is still an experimental feature and the behavior can change.
-    Those containers won't stop after all tests are finished.
+* ⚠️EXPERIMENTAL⚠️
+* ALTHOUGH ALL tests finish -> ❌those containers will NOT stop❌
 
 The *Reusable* feature keeps the containers running and next executions with the same container configuration
 will reuse it. To use it, start the container manually by calling `start()` method, do not call `stop()` method
